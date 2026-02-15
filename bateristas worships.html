@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bateristas Worship</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+html{scroll-behavior:smooth;}
+body{
+  background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.85)),
+  url("https://wallpapers.com/images/high/drum-set-stage-ready-ypx4ckc3vezoqate.webp") center/cover no-repeat fixed;
+  color:#fff;
+}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;}
+.hero h1{font-size:3.5rem;font-weight:800;color:#e50914;}
+.worship{display:inline-flex;align-items:center;gap:10px;}
+.worship img{width:26px;}
+.hero p{margin-top:20px;font-size:1.2rem;}
+
+.hero-buttons{
+  margin-top:35px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn-primary,.btn-parceria{
+  padding:15px 32px;
+  border-radius:40px;
+  color:#fff;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.btn-primary{background:#e50914;}
+.btn-parceria{
+  background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(221,42,123,.7);}
+  70%{box-shadow:0 0 0 18px rgba(221,42,123,0);}
+  100%{box-shadow:0 0 0 0 rgba(221,42,123,0);}
+}
+
+/* SECTION */
+section{padding:80px 20px;text-align:center;}
+h2{color:#e50914;margin-bottom:40px;}
+
+/* PACOTES */
+.pacotes{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;}
+.pacote{
+  max-width:340px;
+  padding:30px;
+  border-radius:24px;
+  background:rgba(255,255,255,.07);
+  box-shadow:0 0 25px rgba(0,0,0,.7);
+  transition:.3s;
+}
+.pacote:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+.preco{font-size:2.4rem;font-weight:800;color:#ff4f70;margin:15px 0;}
+.tag-pacote{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:20px;
+  background:#e50914;
+  font-size:.8rem;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.pacote a{
+  display:inline-block;
+  padding:14px 38px;
+  border-radius:35px;
+  background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+  color:#fff;
+  font-weight:700;
+  text-decoration:none;
+}
+
+/* INSTAGRAM */
+.instagram-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  color:#fff;
+  z-index:999;
+}
+
+/* MODAL OVERLAY */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+
+/* MODAL */
+.modal{
+  background:#141414;
+  padding:45px;
+  border-radius:30px;
+  max-width:650px;
+  width:90%;
+  box-shadow:0 0 60px rgba(221,42,123,.6);
+  position:relative;
+  transform:translateY(40px) scale(.96);
+  opacity:0;
+  animation:modalIn .6s ease forwards;
+}
+
+@keyframes modalIn{
+  to{transform:translateY(0) scale(1);opacity:1;}
+}
+
+/* ANIMAÇÃO INTERNA */
+.modal-content > *{
+  opacity:0;
+  transform:translateY(20px);
+  animation:contentIn .6s ease forwards;
+}
+
+.modal-content > *:nth-child(1){animation-delay:.1s;}
+.modal-content > *:nth-child(2){animation-delay:.2s;}
+.modal-content > *:nth-child(3){animation-delay:.3s;}
+.modal-content > *:nth-child(4){animation-delay:.4s;}
+.modal-content > *:nth-child(5){animation-delay:.5s;}
+.modal-content > *:nth-child(6){animation-delay:.6s;}
+
+@keyframes contentIn{
+  to{opacity:1;transform:translateY(0);}
+}
+
+.modal h3{color:#e50914;text-align:center;margin-bottom:20px;}
+.modal p{margin-bottom:12px;line-height:1.6;}
+.modal ul{margin:15px 0 20px 20px;}
+.modal li{margin-bottom:8px;}
+
+.btn-whatsapp{
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:25px;
+  background:#25d366;
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  font-size:.95rem;
+  transition:.3s;
+}
+
+.btn-whatsapp:hover{
+  background:#1ebe5d;
+  transform:scale(1.06);
+  box-shadow:0 0 15px rgba(37,211,102,.6);
+}
+
+.close{
+  position:absolute;
+  top:18px;
+  right:25px;
+  font-size:26px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero" id="topo">
+  <div>
+    <h1>BATERISTAS <span class="worship">WORSHIP <img src="https://flagcdn.com/w40/br.png"></span></h1>
+    <p>Plataforma nacional de divulgação musical</p>
+
+    <div class="hero-buttons">
+      <a href="#divulgar" class="btn-primary">DIVULGAR MEU VÍDEO</a>
+      <button class="btn-parceria" onclick="abrirModal()">🤝 FAZER PARCERIA</button>
+    </div>
+  </div>
+</section>
+
+<section id="divulgar">
+  <h2>Escolha uma das opções de divulgação</h2>
+
+  <div class="pacotes">
+    <div class="pacote">
+      <span class="tag-pacote">PACOTE</span>
+      <p>10 vídeos • Reels + Stories</p>
+      <div class="preco">R$49,90</div>
+      <a href="https://api.whatsapp.com/send?phone=557181685915&text=Olá! Tenho interesse no pacote de 10 vídeos (Reels + Stories) por R$49,90." target="_blank">Solicitar</a>
+    </div>
+
+    <div class="pacote">
+      <span class="tag-pacote">POPULAR</span>
+      <p>3 vídeos • Reels + Stories</p>
+      <div class="preco">R$15,90</div>
+      <a href="https://api.whatsapp.com/send?phone=557181685915&text=Olá! Quero o pacote de 3 vídeos (Reels + Stories) por R$15,90." target="_blank">Solicitar</a>
+    </div>
+
+    <div class="pacote">
+      <span class="tag-pacote">COLLAB</span>
+      <p>Collab + Stories</p>
+      <div class="preco">R$10,00</div>
+      <a href="https://api.whatsapp.com/send?phone=557181685915&text=Olá! Tenho interesse no pacote Collab + Stories por R$10,00." target="_blank">Solicitar</a>
+    </div>
+
+    <div class="pacote">
+      <span class="tag-pacote">RÁPIDO</span>
+      <p>Reels + Stories</p>
+      <div class="preco">R$15,00</div>
+      <a href="https://api.whatsapp.com/send?phone=557181685915&text=Olá! Quero o pacote Reels + Stories por R$15,00." target="_blank">Solicitar</a>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL PARCERIA -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <span class="close" onclick="fecharModal()">✖</span>
+
+    <div class="modal-content">
+      <h3>🤝 Parceria Bateristas Worship</h3>
+
+      <p><strong>Taxa única de abertura:</strong> R$29,90</p>
+
+      <p>Parceria focada em engajamento real, crescimento orgânico e fortalecimento da sua presença nas redes sociais.</p>
+
+      <ul>
+        <li>Engajamento estratégico do perfil</li>
+        <li>Seguidores ativos e reais</li>
+        <li>Parceria paga com benefícios exclusivos</li>
+        <li>10% de desconto nas divulgações</li>
+        <li>Prioridade nas postagens</li>
+        <li>Outros benefícios adicionais</li>
+      </ul>
+
+      <p>
+        ✔ Postagens por <strong>R$5</strong><br>
+        ✔ <strong>1 Reels grátis</strong> ao fechar
+      </p>
+
+      <a href="https://api.whatsapp.com/send?phone=557181685915&text=Olá! Tenho interesse em fechar uma parceria com o Bateristas Worship." 
+         target="_blank" class="btn-whatsapp">
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<a href="https://www.instagram.com/bateristasworships" target="_blank" class="instagram-float">
+  <i class="fab fa-instagram"></i>
+</a>
+
+<script>
+function abrirModal(){
+  document.getElementById('modal').style.display='flex';
+}
+function fecharModal(){
+  document.getElementById('modal').style.display='none';
+}
+</script>
+
+</body>
+</html>
+
